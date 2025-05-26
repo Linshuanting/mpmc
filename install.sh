@@ -7,7 +7,8 @@ sudo apt update
 sudo apt install -y git curl build-essential libssl-dev zlib1g-dev \
      libbz2-dev libreadline-dev libsqlite3-dev wget llvm \
      libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
-     libffi-dev liblzma-dev python3-pip python3-openssl openvswitch-switch
+     libffi-dev liblzma-dev python3-pip python3-openssl openvswitch-switch \
+     libnfnetlink-dev libnetfilter-queue-dev python-is-python3
 
 # === 安裝 pyenv（如尚未存在） ===
 if ! command -v pyenv &> /dev/null; then
@@ -40,12 +41,19 @@ fi
 # 設定當前目錄使用 ryu-env
 pyenv local ryu-env
 
+# === 設定 VS Code 預設 interpreter ===
+mkdir -p .vscode
+cat > .vscode/settings.json <<EOF
+{
+  "python.pythonPath": "$PYENV_ROOT/versions/3.9.13/envs/ryu-env/bin/python"
+}
+EOF
+echo ✅ VS Code Python interpreter set to ryu-env
+
 # === 安裝 Python 相依套件（確保 setuptools 降版，加入 wheel） ===
 pip install --upgrade pip
-pip install "setuptools<58" wheel networkx paramiko
-
-# === 刪除舊的 Ryu 安裝資料夾（如存在） ===
-rm -rf external/ryu
+pip install "setuptools<58" wheel networkx paramiko \
+    netfilterqueue scapy
 
 # === 安裝 Ryu ===
 mkdir -p external
@@ -71,3 +79,4 @@ git checkout 2.3.0 || echo "⚠ checkout 2.3.0 failed, using default branch."
 sudo ./util/install.sh -a
 echo ✅ Mininet version: $(sudo mn --version)
 cd ../..
+
