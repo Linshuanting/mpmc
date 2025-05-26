@@ -69,13 +69,20 @@ echo ✅ Ryu linked to: $(python -c "import ryu; print(ryu.__file__)")
 # === 儲存 Python 相依套件清單 ===
 pip freeze > requirements.txt
 
+# === 將 ryu_controller 目錄加入 PYTHONPATH 使 Python 可直接 import ===
+mkdir -p ryu_controller
+export PYTHONPATH="\$(pwd)/ryu_controller:\$PYTHONPATH"
+echo 'export PYTHONPATH="\$(pwd)/ryu_controller:\$PYTHONPATH"' >> ~/.bashrc
+
+echo ✅ VS Code Python interpreter set to ryu-env
+
 # === 安裝 Mininet ===
 if [ ! -d external/mininet ]; then
   git clone https://github.com/mininet/mininet external/mininet
 fi
 cd external/mininet
 git fetch --tags
-git checkout 2.3.0 || echo "⚠ checkout 2.3.0 failed, using default branch."
+git checkout 2.3.1b4 || echo "⚠ checkout 2.3.1b4 failed, using default branch."
 sudo ./util/install.sh -a
 echo ✅ Mininet version: $(sudo mn --version)
 cd ../..
