@@ -7,7 +7,7 @@ sudo apt update
 sudo apt install -y git curl build-essential libssl-dev zlib1g-dev \
      libbz2-dev libreadline-dev libsqlite3-dev wget llvm \
      libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
-     libffi-dev liblzma-dev python3-pip
+     libffi-dev liblzma-dev python3-pip python3-openssl openvswitch-switch
 
 # === 安裝 pyenv（如尚未存在） ===
 if ! command -v pyenv &> /dev/null; then
@@ -49,7 +49,10 @@ rm -rf external/ryu
 
 # === 安裝 Ryu ===
 mkdir -p external
-git clone https://github.com/faucetsdn/ryu.git external/ryu
+
+if [ ! -d external/ryu ]; then
+  git clone https://github.com/faucetsdn/ryu.git external/ryu
+fi
 cd external/ryu
 pip install --no-build-isolation --no-use-pep517 -e .  # ⬆ editable mode 從原始碼直接執行
 cd ../..

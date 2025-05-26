@@ -119,7 +119,7 @@ def create_nftable(net):
 
         print(f"✅ 建立 nftables table '{table_name}' 與 chain '{chain_name}' on {host.name}")
 
-        host.cmd(f"setsid python3 /home/user/mininet/custom/modify_server_port.py > /dev/null 2>&1 &")
+        host.cmd(f"setsid python3 {file_folder}/modify_server_port.py > /dev/null 2>&1 &")
 
 def clear_nftable(net):
 
@@ -151,11 +151,10 @@ def del_log_file():
 
 def run_mininet(topology_name):
     """ 啟動 Mininet 並讀取指定的拓撲 """
-    del_log_file()
     setLogLevel('info')
 
     # **修正 JSON 路徑**
-    json_path = os.path.expanduser("/home/user/mininet/custom/topology.json")
+    json_path = os.path.expanduser(f"{file_folder}/topology.json")
 
     # 讀取 JSON 檔案
     with open(json_path, 'r') as f:
