@@ -1,0 +1,204 @@
+{
+    "topologies": {
+        "mesh_v2_topology": {
+            "name": "Mesh v2 Topology",
+            "nodes": [
+                {"name": "h1", "ipv6": "2001:db8::1"},
+                {"name": "h2", "ipv6": "2001:db8::2"},
+                {"name": "h3", "ipv6": "2001:db8::3"},
+                {"name": "h4", "ipv6": "2001:db8::4"},
+                {"name": "h5", "ipv6": "2001:db8::5"},
+                {"name": "h6", "ipv6": "2001:db8::6"},
+                {"name": "s1"},
+                {"name": "s2"},
+                {"name": "s3"},
+                {"name": "s4"},
+                {"name": "s5"},
+                {"name": "s6"}
+            ],
+            "links": [
+                {"link": "s1-s2", "bw": 20},
+                {"link": "s1-s3", "bw": 20},
+                {"link": "s2-s3", "bw": 20},
+                {"link": "s2-s4", "bw": 20},
+                {"link": "s3-s4", "bw": 20},
+                {"link": "s3-s5", "bw": 20},
+                {"link": "s4-s5", "bw": 20},
+                {"link": "s4-s6", "bw": 20},
+                {"link": "s5-s6", "bw": 20},
+                {"link": "h1-s1", "bw": 50},
+                {"link": "h2-s2", "bw": 50},
+                {"link": "h3-s3", "bw": 50},
+                {"link": "s4-h4", "bw": 50},
+                {"link": "s6-h6", "bw": 50},
+                {"link": "s5-h5", "bw": 50}
+            ]
+        },
+        "mesh_topology": {
+            "name": "Mesh Topology",
+            "nodes": [
+                {"name": "h1", "ipv6": "2001:db8::1"},
+                {"name": "h2", "ipv6": "2001:db8::2"},
+                {"name": "h3", "ipv6": "2001:db8::3"},
+                {"name": "h4", "ipv6": "2001:db8::4"},
+                {"name": "s1"},
+                {"name": "s2"}
+
+            ],
+            "links": [
+                {"link": "h1-s1", "bw": 50},
+                {"link": "h2-s1", "bw": 50},
+                {"link": "h3-s2", "bw": 50},
+                {"link": "h4-s2", "bw": 50},
+                {"link": "s1-s2", "bw": 20}
+            ]
+        },
+        "ring_topology": {
+            "name": "Ring Topology",
+            "nodes": [
+                {"name": "h1", "ipv6": "2001:db8::1"},
+                {"name": "h2", "ipv6": "2001:db8::2"},
+                {"name": "h3", "ipv6": "2001:db8::3"},
+                {"name": "h4", "ipv6": "2001:db8::4"},
+                {"name": "s1"},
+                {"name": "s2"},
+                {"name": "s3"},
+                {"name": "s4"}
+            ],
+            "links": [
+                {"link": "h1-s1", "bw": 50},
+                {"link": "h2-s1", "bw": 50},
+                {"link": "h3-s2", "bw": 50},
+                {"link": "h4-s2", "bw": 50},
+                {"link": "s1-s2", "bw": 20}
+            ]
+        },
+        "test_topology": {
+            "name": "Test Topology",
+            "nodes": [
+                {"name": "h1", "ipv6": "2001:db8::1"},
+                {"name": "h2", "ipv6": "2001:db8::2"},
+                {"name": "h3", "ipv6": "2001:db8::3"},
+                {"name": "s1"},
+                {"name": "s2"}
+            ],
+            "links": [
+                {"link": "h1-s1", "bw": 50},
+                {"link": "h2-s2", "bw": 50},
+                {"link": "h3-s2", "bw": 50},
+                {"link": "s1-s2", "bw": 50}
+            ]
+        },
+        "spine_leaf_topology": {
+            "name": "Spine-Leaf Topology",
+            "nodes": [
+                {"name": "h1", "ipv6": "2001:db8::1"},
+                {"name": "h2", "ipv6": "2001:db8::2"},
+                {"name": "h3", "ipv6": "2001:db8::3"},
+                {"name": "h4", "ipv6": "2001:db8::4"},
+                {"name": "h5", "ipv6": "2001:db8::5"},
+                {"name": "h6", "ipv6": "2001:db8::6"},
+                {"name": "h7", "ipv6": "2001:db8::7"},
+                {"name": "h8", "ipv6": "2001:db8::8"},
+
+                {"name": "s1"},
+                {"name": "s2"},
+                {"name": "s3"},
+                {"name": "s4"},
+                {"name": "s5"},
+                {"name": "s6"}
+            ],
+            "links": [
+                {"link": "h1-s1", "bw": 80},
+                {"link": "h2-s1", "bw": 80},
+                {"link": "h3-s2", "bw": 80},
+                {"link": "h4-s2", "bw": 80},
+                {"link": "h5-s3", "bw": 80},
+                {"link": "h6-s3", "bw": 80},
+                {"link": "h7-s4", "bw": 80},
+                {"link": "h8-s4", "bw": 80},
+
+                {"link": "s1-s5", "bw": 20},
+                {"link": "s1-s6", "bw": 20},
+                {"link": "s2-s5", "bw": 20},
+                {"link": "s2-s6", "bw": 20},
+                {"link": "s3-s5", "bw": 20},
+                {"link": "s3-s6", "bw": 20},
+                {"link": "s4-s5", "bw": 20},
+                {"link": "s4-s6", "bw": 20}
+            ]
+        },
+        "test2_topology": {
+            "name": "Test Topology",
+            "nodes": [
+                {"name": "h1", "ipv6": "2001:db8::1"},
+                {"name": "h2", "ipv6": "2001:db8::2"},
+                {"name": "h3", "ipv6": "2001:db8::3"},
+                {"name": "s1"},
+                {"name": "s2"},
+                {"name": "s3"},
+                {"name": "s4"}
+
+            ],
+            "links": [
+                {"link": "h1-s1", "bw": 50},
+                {"link": "h2-s4", "bw": 50},
+                {"link": "h3-s4", "bw": 50},
+                {"link": "s1-s2", "bw": 50},
+                {"link": "s1-s3", "bw": 50},
+                {"link": "s2-s4", "bw": 50},
+                {"link": "s3-s4", "bw": 50}
+            ]
+        },
+        "spine_leaf_topology_2": {
+            "name": "Spine-Leaf Topology",
+            "nodes": [
+                {"name": "h1", "ipv6": "2001:db8::1"},
+                {"name": "h2", "ipv6": "2001:db8::2"},
+                {"name": "h3", "ipv6": "2001:db8::3"},
+                {"name": "h4", "ipv6": "2001:db8::4"},
+                {"name": "h5", "ipv6": "2001:db8::5"},
+                {"name": "h6", "ipv6": "2001:db8::6"},
+                {"name": "h7", "ipv6": "2001:db8::7"},
+                {"name": "h8", "ipv6": "2001:db8::8"},
+
+                {"name": "s1"},
+                {"name": "s2"},
+                {"name": "s3"},
+                {"name": "s4"},
+                {"name": "s5"},
+                {"name": "s6"},
+                {"name": "s7"},
+                {"name": "s8"}
+
+            ],
+            "links": [
+                {"link": "h1-s1", "bw": 50},
+                {"link": "h2-s1", "bw": 50},
+                {"link": "h3-s2", "bw": 50},
+                {"link": "h4-s2", "bw": 50},
+                {"link": "h5-s3", "bw": 50},
+                {"link": "h6-s3", "bw": 50},
+                {"link": "h7-s4", "bw": 50},
+                {"link": "h8-s4", "bw": 50},
+                
+                {"link": "s1-s5", "bw": 20},
+                {"link": "s1-s6", "bw": 20},
+                {"link": "s1-s7", "bw": 20},
+                {"link": "s1-s8", "bw": 20},
+                {"link": "s2-s5", "bw": 20},
+                {"link": "s2-s6", "bw": 20},
+                {"link": "s2-s7", "bw": 20},
+                {"link": "s2-s8", "bw": 20},
+                {"link": "s3-s5", "bw": 20},
+                {"link": "s3-s6", "bw": 20},
+                {"link": "s3-s7", "bw": 20},
+                {"link": "s3-s8", "bw": 20},
+                {"link": "s4-s5", "bw": 20},
+                {"link": "s4-s6", "bw": 20},
+                {"link": "s4-s7", "bw": 20},
+                {"link": "s4-s8", "bw": 20}
+            ]
+        }
+    }
+}

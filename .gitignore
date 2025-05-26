@@ -1,0 +1,8 @@
+# 忽略第三方外部來源程式碼
+external/
+
+# 忽略 Python 虛擬環境資訊
+.python-version
+
+# 忽略 VS Code 設定（如果存在）
+.vscode/
