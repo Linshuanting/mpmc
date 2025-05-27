@@ -19,7 +19,7 @@ import logging
 
 # 初始化 log 設定
 logging.basicConfig(
-    filename="simulation_result/log/nfqueue_log.txt",
+    filename="/home/user/mpmc_implementation/mininet/simulation_result/log/nfqueue_log.txt",
     filemode="w",
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
