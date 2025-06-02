@@ -69,7 +69,7 @@ sudo python mininet/topo_maker.py <topology_name>
 ```
 3. Launch ssh server
 ```bash
-python ryu_controller/tools/ssh_connect.py
+python ssh_connect.py
 ```
 4. Start Applclication GUI
 ```bash

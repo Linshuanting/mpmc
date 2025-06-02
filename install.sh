@@ -50,10 +50,15 @@ cat > .vscode/settings.json <<EOF
 EOF
 echo ✅ VS Code Python interpreter set to ryu-env
 
-# === 安裝 Python 相依套件（確保 setuptools 降版，加入 wheel） ===
+# === 安裝 Python 相依套件 ===
 pip install --upgrade pip
 pip install "setuptools<58" wheel networkx paramiko \
-    netfilterqueue scapy
+    netfilterqueue scapy pyqt5 flask pandas matplotlib \
+    pulp
+
+# === 安裝 netfilterqueue 與 scapy (需使用 sudo 安裝至系統層級避免編譯錯誤) ===
+echo ✅ Installing netfilterqueue and scapy to system site-packages...
+sudo pip install netfilterqueue scapy
 
 # === 安裝 Ryu ===
 mkdir -p external
@@ -67,12 +72,13 @@ cd ../..
 echo ✅ Ryu linked to: $(python -c "import ryu; print(ryu.__file__)")
 
 # === 儲存 Python 相依套件清單 ===
-pip freeze > requirements.txt
+pip freeze > requirements.txtS
 
 # === 將 ryu_controller 目錄加入 PYTHONPATH 使 Python 可直接 import ===
 mkdir -p ryu_controller
-export PYTHONPATH="\$(pwd)/ryu_controller:\$PYTHONPATH"
-echo 'export PYTHONPATH="\$(pwd)/ryu_controller:\$PYTHONPATH"' >> ~/.bashrc
+RYU_PATH="$(pwd)/ryu_controller"
+export PYTHONPATH="$RYU_PATH:$PYTHONPATH"
+echo "export PYTHONPATH=\"$RYU_PATH:\$PYTHONPATH\"" >> ~/.bashrc
 
 echo ✅ VS Code Python interpreter set to ryu-env
 
