@@ -17,6 +17,7 @@ This repository provides a one-command installation script to set up a complete 
 
 ## 📁 Directory Structure
 
+```
 mpmc_implementation/
 ├── install.sh # All-in-one installation script
 ├── ryu_controller/ # Your custom Ryu applications
@@ -27,6 +28,7 @@ mpmc_implementation/
 ├── result/ # Logs and experiment output
 ├── .python-version # pyenv local version
 └── requirements.txt # Python package list
+```
 
 ---
 
