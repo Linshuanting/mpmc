@@ -22,10 +22,11 @@ mpmc_implementation/
 ├── install.sh # All-in-one installation script
 ├── ryu_controller/ # Your custom Ryu applications
 ├── mininet/ # Your custom mininet applications
+├── ssh_connect.py/ # Your ssh server applications
 ├── external/
 │ ├── ryu/ # Cloned Ryu controller source
 │ └── mininet/ # Cloned Mininet emulator
-├── result/ # Logs and experiment output
+├── simulation_result/ # Logs and experiment output
 ├── .python-version # pyenv local version
 └── requirements.txt # Python package list
 ```
