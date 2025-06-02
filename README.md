@@ -17,17 +17,17 @@ This repository provides a one-command installation script to set up a complete 
 
 ## 📁 Directory Structure
 
-```
 mpmc_implementation/
 ├── install.sh # All-in-one installation script
-├── ryu_controller/ # Our custom Ryu applications
-├── mininet/ # Our custom mininet applications
+├── ryu_controller/ # Your custom Ryu applications
+├── mininet/ # Your custom mininet applications
 ├── external/
 │ ├── ryu/ # Cloned Ryu controller source
 │ └── mininet/ # Cloned Mininet emulator
 ├── result/ # Logs and experiment output
+├── .python-version # pyenv local version
 └── requirements.txt # Python package list
-```
+
 ---
 
 ## ✅ Requirements
