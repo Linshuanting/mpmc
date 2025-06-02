@@ -6,3 +6,5 @@ external/
 
 # 忽略 VS Code 設定（如果存在）
 .vscode/
+
+download/
