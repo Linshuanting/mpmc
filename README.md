@@ -35,7 +35,7 @@ mpmc_implementation/
 
 ## ✅ Requirements
 
-- Ubuntu 20.04 or later
+- Ubuntu 22.04 or later
 - Internet connection to clone GitHub repositories
 - `sudo` privileges
 
