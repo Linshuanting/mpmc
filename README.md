@@ -46,7 +46,7 @@ mpmc_implementation/
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/your-org/mpmc.git
+git clone https://github.com/Linshuanting/mpmc
 cd mpmc
 ```
 2. Installation of Mininet & Ryu:
