@@ -53,7 +53,9 @@ cd mpmc
 ```bash
 ./install.sh
 ```
-3. Checking Installation of Mininet & Ryu
+3. Restart command line
+
+4. Checking Installation of Mininet & Ryu
 ```bash
 ryu-manager --version
 sudo mn --version
