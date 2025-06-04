@@ -22,7 +22,7 @@ mpmc_implementation/
 ├── install.sh # All-in-one installation script
 ├── ryu_controller/ # Your custom Ryu applications
 ├── mininet/ # Your custom mininet applications
-├── ssh_connect.py/ # Your ssh server applications
+├── ssh_connect.py # Your ssh server applications
 ├── external/
 │ ├── ryu/ # Cloned Ryu controller source
 │ └── mininet/ # Cloned Mininet emulator
@@ -46,8 +46,8 @@ mpmc_implementation/
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/your-org/mpmc_implementation.git
-cd mpmc_implementation
+git clone https://github.com/your-org/mpmc.git
+cd mpmc
 ```
 2. Installation of Mininet & Ryu:
 ```bash
