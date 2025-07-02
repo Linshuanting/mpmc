@@ -15,11 +15,14 @@ import ctypes.util
 from bisect import bisect
 import atexit
 
+import os, sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from common.config import MININET_DIR
 import logging
 
 # 初始化 log 設定
 logging.basicConfig(
-    filename="/home/user/mpmc_implementation/mininet/log/nfqueue_log.txt",
+    filename=f"{MININET_DIR}/log/nfqueue_log.txt",
     filemode="w",
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",

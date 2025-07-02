@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from ipaddress import IPv6Address, IPv6Network
 from pathlib import Path
 from typing import Dict, Optional, Sequence
+from config import DATA_DIR, MININET_DIR
 
 import paramiko
 from flask import Flask, request, jsonify
@@ -50,11 +51,11 @@ class SSHConnection:
 
 
 class SSHManager:
-    def __init__(self, file_folder: str = "/home/user/mpmc_implementation/mininet"):
+    def __init__(self, file_folder: str = MININET_DIR):
         self._conns: Dict[str, ConnectionInfo] = {}
         self._default_nic: Dict[str, str] = {}
         self.file_folder = Path(file_folder)
-        self.root_folder = Path("/home/user/mpmc_implementation")
+        self.root_folder = Path(DATA_DIR)
 
     def add_host(
         self,

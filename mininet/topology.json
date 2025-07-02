@@ -199,6 +199,44 @@
                 {"link": "s4-s7", "bw": 20},
                 {"link": "s4-s8", "bw": 20}
             ]
+        },
+        "mesh_connect_topology": {
+            "name": "Mesh Topology",
+            "nodes": [
+                {"name": "h1", "ipv6": "2001:db8::1"},
+                {"name": "h2", "ipv6": "2001:db8::2"},
+                {"name": "h3", "ipv6": "2001:db8::3"},
+                {"name": "h4", "ipv6": "2001:db8::4"},
+                {"name": "s1"},
+                {"name": "s2"}
+
+            ],
+            "links": [
+                {"link": "h1-s1", "bw": 50},
+                {"link": "h2-s1", "bw": 50},
+                {"link": "h3-s2", "bw": 50},
+                {"link": "h4-s2", "bw": 50},
+                {"link": "s1-s2", "bw": 20}
+            ]
+        },
+        "mesh_connect_topology2": {
+            "name": "Mesh Topology",
+            "nodes": [
+                {"name": "h5", "ipv6": "2001:db8::5"},
+                {"name": "h6", "ipv6": "2001:db8::6"},
+                {"name": "h7", "ipv6": "2001:db8::7"},
+                {"name": "h8", "ipv6": "2001:db8::8"},
+                {"name": "s3"},
+                {"name": "s4"}
+
+            ],
+            "links": [
+                {"link": "h5-s3", "bw": 50},
+                {"link": "h6-s3", "bw": 50},
+                {"link": "h7-s4", "bw": 50},
+                {"link": "h8-s4", "bw": 50},
+                {"link": "s3-s4", "bw": 20}
+            ]
         }
     }
 }

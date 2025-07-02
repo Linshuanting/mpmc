@@ -74,6 +74,13 @@ echo ✅ Ryu linked to: $(python -c "import ryu; print(ryu.__file__)")
 # === 儲存 Python 相依套件清單 ===
 pip freeze > requirements.txtS
 
+# === 🔽 新增區塊：將 common path 主目錄加入 PYTHONPATH ===
+mkdir -p common
+COMMON_PATH="$(pwd)/common"
+export PYTHONPATH="$COMMON_PATH:$PYTHONPATH"
+echo "export PYTHONPATH=\"$COMMON_PATH:\$PYTHONPATH\"" >> ~/.bashrc
+echo ✅ Added mpmc implementation to PYTHONPATH
+
 # === 將 ryu_controller 目錄加入 PYTHONPATH 使 Python 可直接 import ===
 mkdir -p ryu_controller
 RYU_PATH="$(pwd)/ryu_controller"

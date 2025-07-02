@@ -7,9 +7,11 @@ from mininet.link import TCLink
 from ssh_connect import sshd
 import json
 import argparse
-import os
+import os, sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from common.config import MININET_DIR
 
-file_folder = "/home/user/mpmc_implementation/mininet"
+file_folder = MININET_DIR
 
 class TopologyMaker(Topo):
     def __init__(self, topology_data):
@@ -167,8 +169,14 @@ def run_mininet(topology_name):
     topology_data = topology_config["topologies"][topology_name]
     print(f"✅ 正在載入拓撲: {topology_data['name']}")
 
+    CONTROLLER_IP = "192.168.1.14"
+
     topo = TopologyMaker(topology_data)
-    net = Mininet(topo=topo, controller=RemoteController, switch=OVSSwitch, link=TCLink)
+    net = Mininet(
+        topo=topo, 
+        controller=lambda name: RemoteController(name, ip=CONTROLLER_IP, port=6633), 
+        switch=OVSSwitch, 
+        link=TCLink)
     ssh = sshd()
     root = ssh.buildRootNode(net, switch=net['s1'], ip='2001:db8::100/64')
     net.start()
