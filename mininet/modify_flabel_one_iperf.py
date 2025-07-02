@@ -20,6 +20,10 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from common.config import MININET_DIR
 import logging
 
+# 確保 log 資料夾存在
+log_path = os.path.join(MININET_DIR, "log")
+os.makedirs(log_path, exist_ok=True)
+
 # 初始化 log 設定
 logging.basicConfig(
     filename=f"{MININET_DIR}/log/nfqueue_log.txt",
