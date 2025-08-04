@@ -4,9 +4,10 @@
 import sys
 import http.client
 import json
+from common.config import SSHD_IP, SSHD_PORT
 
 class SSHManagerAPIWrapper:
-    def __init__(self, host="localhost", port=4888):
+    def __init__(self, host=SSHD_IP, port=SSHD_PORT):
         self.host = host
         self.port = port
 
@@ -119,3 +120,10 @@ class SSHManagerAPIWrapper:
             "dport": dport,
             "time": time
         }).get("output", "")
+    
+    def execute_tc_show_command(self, hostname, interface):
+        return self._post("/execute_tc_show_command", {
+            "hostname": hostname,
+            "interface": interface
+        }).get("output", "")
+

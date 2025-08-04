@@ -4,7 +4,8 @@ from dataclasses import dataclass
 from ipaddress import IPv6Address, IPv6Network
 from pathlib import Path
 from typing import Dict, Optional, Sequence
-from config import DATA_DIR, MININET_DIR
+from common.config import DATA_DIR, MININET_DIR, SSHD_IP, SSHD_PORT
+import subprocess
 
 import paramiko
 from flask import Flask, request, jsonify
@@ -442,7 +443,6 @@ def api_send_mapping_to_socket():
 
     return jsonify({"hostname": hostname, "command": cmd, "output": result})
 
-
 @app.route("/execute_tcpdump_and_get_csv_command", methods=["POST"])
 def api_execute_tcpdump_and_get_csv_command():
     data = request.json
@@ -473,6 +473,18 @@ def api_execute_tcpdump_and_get_csv_command():
 
     return jsonify({"output": results})
 
+@app.route("/execute_tc_show_command", methods=["POST"])
+def api_execute_tc_show_command():
+    data = request.json
+    hostname = data["hostname"]
+    interface = data["interface"]
+
+    if not ssh_manager.has_host(hostname):
+        return jsonify({"error": f"Unknown hostname: {hostname}"}), 400
+
+    cmd = f"tc -s class show dev {interface}"
+    output = ssh_manager.execute_command(hostname, cmd)
+    return jsonify({"output": output})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=4888)
+    app.run(host=SSHD_IP, port=SSHD_PORT)

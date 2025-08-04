@@ -55,10 +55,16 @@ cd mpmc
 ```
 3. Restart command line
 
-4. Checking Installation of Mininet & Ryu
+4. Checking Installation of Mininet & RyuS
 ```bash
 ryu-manager --version
 sudo mn --version
+```
+
+5. Set the config according to your environment
+```bash
+cd common
+# Update config.py to match your environment
 ```
 
 ## 🚀 Usage
@@ -80,8 +86,11 @@ python ssh_connect.py
 ```bash
 python ryu_controller/PyQt_GUI/gui.py
 ```
-5. Checking Result
-
-    Press the button in GUI
-
-
+5. Generating Result
+```text
+Press the button in GUI
+```
+6. Check Raw Data Result
+```text
+Results are saved in the simulation_result/raw_data folder.
+```
